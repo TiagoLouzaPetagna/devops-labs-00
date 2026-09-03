@@ -8,6 +8,7 @@ on:
  
 jobs:
   build-and-test:
+    needs: security-gates
     runs-on: ubuntu-latest
  
     steps:
@@ -27,3 +28,6 @@ jobs:
  
       - name: Build da imagem Docker
         run: docker build -t devops-lab-00:${{ github.sha }} .
+
+      - name: Gate 2 — SAST (Bandit)
+        run: bandit -r . -x ./venv -ll
