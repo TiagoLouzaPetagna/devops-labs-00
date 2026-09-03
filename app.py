@@ -9,3 +9,8 @@ def saudacao(nome):
 if __name__ == "__main__":
     print(saudacao("ECDE"))
     print(f"2 + 3 = {soma(2, 3)}")
+
+def calcular_expressao(expressao):
+    # INSEGURO: eval() executa
+    # qualquer código Python
+    return eval(expressao)
